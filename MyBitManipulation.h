@@ -1,3 +1,6 @@
+/* Name: Lisul Elvitigala
+ * ID: 116152790
+ */
 #ifndef MY_BIT_MANIPULATION_H
 #define MY_BIT_MANIPULATION_H
 #include <stdint.h>

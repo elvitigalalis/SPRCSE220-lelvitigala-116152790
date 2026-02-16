@@ -1,15 +1,17 @@
+/* Name: Lisul Elvitigala
+ * ID: 116152790
+ */
 #include "MyIntegers.h"
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 void repr_convert(char source_repr, char target_repr, unsigned int repr) {
 
-   /*
-    * TODO:
-    * 1. Validate source_repr and target_repr
-    * 2. Decode the source representation
-    * 3. Convert to target representation
-    * 4. Print the result or error message
-    */
-
+  /*
+   * TODO:
+   * 1. Validate source_repr and target_repr
+   * 2. Decode the source representation
+   * 3. Convert to target representation
+   * 4. Print the result or error message
+   */
 }

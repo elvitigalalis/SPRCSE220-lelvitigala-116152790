@@ -1,3 +1,6 @@
+Name: Lisul Elvitigala
+ID: 116152790
+
 HW3/
 ├── Makefile
 ├── HW3_main.c
