@@ -1,3 +1,6 @@
+# Name: Lisul Elvitigala
+# ID: 116152790
+
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c99 -g
 CRIT = -lcriterion
