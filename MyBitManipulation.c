@@ -10,8 +10,11 @@
  * Toggle the bit at position pos in num
  */
 int ToggleBit(int num, int pos) {
-  /* TODO: implement */
-  return num;
+  if (pos < 0 || pos > 31) {
+    return num; // Invalid position, so we don't need to modify anything.
+  }
+  unsigned int mask = 1u << pos; // We put 1u to signify 1 is unsigned (so no sign bit).
+  return num ^ mask; 
 }
 
 /*
@@ -19,7 +22,12 @@ int ToggleBit(int num, int pos) {
  * Return -1 if num == 0
  */
 int GetMSB(int num) {
-  /* TODO: implement */
+  for (int i = 31; i >= 0; i--) {
+    unsigned int mask = 1u << i;
+    if ((num & mask) != 0) {
+      return i;
+    }
+  }
   return -1;
 }
 
@@ -27,8 +35,16 @@ int GetMSB(int num) {
  * Clear bits from start to end (inclusive)
  */
 int ClearBitRange(int num, int start, int end) {
-  /* TODO: implement */
-  return num;
+  if (start == 0 && end == 31) {
+    return 0; // Clearing all bits.
+  }
+  if (start < 0 || end > 31 || start > end) {
+    return num; // Invalid range.
+  }
+
+  unsigned int length = end - start + 1;
+  unsigned int mask = (1u << length) - 1; // -1 will turn all ending 0s to 1s.
+  return (num & (~(mask << start)));
 }
 
 /*
