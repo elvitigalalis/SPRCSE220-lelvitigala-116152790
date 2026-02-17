@@ -13,7 +13,7 @@ int ToggleBit(int num, int pos) {
   if (pos < 0 || pos > 31) {
     return num; // Invalid position, so we don't need to modify anything.
   }
-  unsigned int mask = 1u << pos; // We put 1u to signify 1 is unsigned (so no sign bit).
+  uint32_t mask = 1u << pos; // We put 1u to signify 1 is unsigned (so no sign bit).
   return num ^ mask; 
 }
 
@@ -23,7 +23,7 @@ int ToggleBit(int num, int pos) {
  */
 int GetMSB(int num) {
   for (int i = 31; i >= 0; i--) {
-    unsigned int mask = 1u << i;
+    uint32_t mask = 1u << i;
     if ((num & mask) != 0) {
       return i;
     }
@@ -42,8 +42,8 @@ int ClearBitRange(int num, int start, int end) {
     return num; // Invalid range.
   }
 
-  unsigned int length = end - start + 1;
-  unsigned int mask = (1u << length) - 1; // -1 will turn all ending 0s to 1s.
+  uint32_t length = end - start + 1;
+  uint32_t mask = (1u << length) - 1; // -1 will turn all ending 0s to 1s.
   return (num & (~(mask << start)));
 }
 
@@ -51,14 +51,18 @@ int ClearBitRange(int num, int start, int end) {
  * Rotate num to the left by d bits
  */
 uint32_t RotateLeft(uint32_t num, int d) {
-  /* TODO: implement */
-  return num;
+  d &= 31; // This will do the same thing as d % 32 but faster! It basically just prunes everything but the least significant 5 digits.
+  if (d == 0) return num;
+  uint32_t temp_bits = num >> (32 - d);
+  return ((num << d) | temp_bits);
 }
 
 /*
  * Swap odd and even bits
  */
 int SwapOddEvenBits(int num) {
-  /* TODO: implement */
-  return num;
+  uint32_t even_bits_mask = 0xAAAAAAAA;
+  uint32_t odd_bit_mask = 0x55555555;
+
+  return (((num & even_bits_mask) >> 1) | ((num & odd_bit_mask) << 1));
 }

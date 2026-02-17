@@ -15,7 +15,10 @@ int main(void) {
   printf("GetMSB(0) = %d\n", GetMSB(0));
   printf("ClearBitRange(73, 1, 3) = %d\n", ClearBitRange(73, 1, 3));
   printf("ClearBitRange(73, 0, 31) = %d\n", ClearBitRange(73, 0, 31));
-
+  printf("RotateLeft(5, 1) = %d\n", RotateLeft(5, 1));
+  printf("RotateLeft(5, 2) = %d\n", RotateLeft(5, 2));
+  printf("SwapOddEvenBits(23) = %d\n", SwapOddEvenBits(23));
+  
   /* PART 2: Float Construction */
   float f = construct_float_sf(0x00, 0x7F, 0x200000);
   printf("Float value = %g\n", f);
