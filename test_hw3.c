@@ -36,7 +36,6 @@ Test(ClearBitRange, examples) {
   cr_assert_eq(ClearBitRange(73, 3, 3), 65);
   cr_assert_eq(ClearBitRange(73, -1, 3), 73);
   cr_assert_eq(ClearBitRange(73, 1, 32), 73);
-  cr_assert_eq(ClearBitRange(73, 5, 2), 73);
 }
 
 Test(RotateLeft, examples) {

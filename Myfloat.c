@@ -7,10 +7,14 @@
 float construct_float_sf(char sign_bit, char exponent, unsigned int fraction) {
   unsigned int f = 0;
 
-  /*
-   * Start coding here
-   * Use bitwise operations to construct the IEEE 754 float
-   */
+  // Take the char inputs --> we extract the bits necessary (and make a mask).
+  uint32_t f_sign_bit = ((uint32_t) sign_bit) & 0x1u; // LSB, I added convert to uint32_t in case of signed char.
+  uint32_t f_exponent = ((uint32_t) exponent) & 0xFFu; // 8 bits
+  uint32_t f_fraction = ((uint32_t) fraction) & 0x7FFFFFu; // 23 bits (4 digits * 5 + 3 digits)
 
+  f |= (f_sign_bit << 31);
+  f |= (f_exponent << 23);
+  f |= f_fraction;
+  
   return *(float *)&f;
 }

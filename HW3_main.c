@@ -22,6 +22,7 @@ int main(void) {
   /* PART 2: Float Construction */
   float f = construct_float_sf(0x00, 0x7F, 0x200000);
   printf("Float value = %g\n", f);
+  printf("f = %g\n", construct_float_sf(0x00, 0x76, 0x299B6F));
 
   /* PART 3: Integer Representation Conversion */
   repr_convert('2', '2', 0x59f2ca50);
