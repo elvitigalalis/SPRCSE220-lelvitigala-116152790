@@ -63,13 +63,31 @@ Test(SwapOddEvenBits, examples) {
  * ========================= */
 
 Test(ConstructFloat, positive_examples) {
-  // float f = construct_float_sf(0x00, 0x7F, 0x200000);
-  // cr_assert_float_eq(f, 1.25, 0.00001);
+  float f;
+  f = construct_float_sf(0x00, 0x7F, 0x200000);
+  cr_assert_float_eq(f, 1.25, 0.00001);
+  f = construct_float_sf(0x00, 0x81, 0x300000);
+  cr_assert_float_eq(f, 5.5, 0.00001);
+  f = construct_float_sf(0x00, 0x76, 0x299B6F);
+  cr_assert_float_eq(f, 0.002588, 0.000001);
+  f = construct_float_sf(0x00, 0x89, 0xABCDEF);
+  cr_assert_float_eq(f, 1374.44, 0.01);
+  f = construct_float_sf(0x00, 0x90, 0x7973C0);
+  cr_assert_float_eq(f, 255439.0, 0.1);
 }
 
 Test(ConstructFloat, negative_examples) {
-  // float f = construct_float_sf(0x01, 0x7F, 0x200000);
-  // cr_assert_float_eq(f, -1.25, 0.00001);
+  float f;
+  f = construct_float_sf(0x01, 0x7F, 0x200000);
+  cr_assert_float_eq(f, -1.25, 0.00001);
+  f = construct_float_sf(0x01, 0x81, 0x300000);
+  cr_assert_float_eq(f, -5.5, 0.00001);
+  f = construct_float_sf(0x01, 0x76, 0x299B6F);
+  cr_assert_float_eq(f, -0.002588, 0.000001);
+  f = construct_float_sf(0x01, 0x89, 0xABCDEF);
+  cr_assert_float_eq(f, -1374.44, 0.01);
+  f = construct_float_sf(0x01, 0x90, 0x7973C0);
+  cr_assert_float_eq(f, -255439.0, 0.1);
 }
 
 /* =========================
