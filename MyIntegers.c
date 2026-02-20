@@ -22,12 +22,12 @@ void repr_convert(char source_repr, char target_repr, unsigned int repr) {
   // 'S' (sign/mag) --> '2' (two's complement)
   if (source_repr == 'S' && target_repr == '2') {
     unsigned int sign_bit = (repr >> 31) & 1u;
-    unsigned int magnitude = repr & (~0u >> 1);
+    unsigned int magnitude = repr & (~0u >> 1u);
     if (sign_bit == 0u) {
       final_result = magnitude;
       goto print_final_hex;
     } else if (sign_bit == 1u) {
-      final_result = (~magnitude) + 1;
+      final_result = (~magnitude) + 1u;
       goto print_final_hex;
     }
   }
