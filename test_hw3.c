@@ -100,6 +100,7 @@ Test(ConstructFloat, negative_examples) {
  */
 
 Test(ReprConvert, basic_run) {
-  // repr_convert('2', '2', 0x59f2ca50);
-  // repr_convert('S', '2', 0x80000000);
+  repr_convert('2', '2', 0x59f2ca50);
+  repr_convert('S', '2', 0x80000000);
+  repr_convert('S', '2', 0x80000001);
 }
