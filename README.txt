@@ -34,6 +34,7 @@ For the following parts, each section details how I handled edge cases and any a
     * RotateLeft(uint32_t num, int d) --> We can safely assume d is strictly positive (as mentioned on Piazza). To optimize, I also used d &= 31 as a faster bitwise operation to calculate d % 32.
     * SwapOddEvenBits(int num) --> Uses typed unsigned 32-bit masks (0xAAAAAAAA and 0x55555555) to extract the odd/even values to perform a right/left shift.
 * Part 2 (`Myfloat.c`)
+    * Discarded values are represented as 0.0f: If the sign-bit is anything other than 0 or 1, discard the value safely by returning `0.0f`. If the exponent evaluates to 0xFF, my program will catch this before creating the IEEE 754 float (returning `0.0f` as a fallback).
     * Invalid sign bit or datatypes --> I casted the inputs to `uint32_t` and masked with `0x1u` for the sign bit, `0xFFu` for the exponent, and `0x7FFFFFu` for the fraction part. I also strictly enforced 8-bit and 32-bit boundaries as mentioned on Piazza; all other input is discarded (preventing larger data types or any unexpected characters from crashing our program).
     * NaN and Infinity handling --> Rather than returning their standard representations, if the arguments provided form the IEEE 754 bit-patterns for Infinity or Nan, the function will use the methods described in the above bullet to process, then throw out the input without causing any undefined behavior.
 

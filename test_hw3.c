@@ -84,6 +84,10 @@ Test(ConstructFloat, positive_examples) {
   cr_assert_float_eq(f, 255439.0, 0.1);
   f = construct_float_sf(0x00, 0x00, 0x000000);
   cr_assert_float_eq(f, 0.0, 0.00001);
+  f = construct_float_sf(0x03, 0x7F, 0x200000);
+  cr_assert_float_eq(f, 0.0f, 0.0f);
+  f = construct_float_sf(0x00, 0xFF, 0x000000);
+  cr_assert_float_eq(f, 0.0f, 0.0f);
 }
 
 Test(ConstructFloat, negative_examples) {
@@ -99,7 +103,11 @@ Test(ConstructFloat, negative_examples) {
   f = construct_float_sf(0x01, 0x90, 0x7973C0);
   cr_assert_float_eq(f, -255439.0, 0.1);
   f = construct_float_sf(0x03, 0x7F, 0x200000); 
-  cr_assert_float_eq(f, -1.25, 0.00001);
+  cr_assert_float_eq(f, 0.0f, 0.00001);
+  f = construct_float_sf(0x01, 0xFF, 0x000000);
+  cr_assert_float_eq(f, 0.0f, 0.0f);
+  f = construct_float_sf(0x00, 0xFF, 0x000001);
+  cr_assert_float_eq(f, 0.0f, 0.0f);
 }
 
 /* =========================
