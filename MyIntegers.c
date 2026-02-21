@@ -14,11 +14,11 @@ void repr_convert(char source_repr, char target_repr, unsigned int repr) {
 
   unsigned int final_result = 0;
   if (source_repr == target_repr) {
-    final_result = repr;
-    // I decided to use goto method whenever we have to print a hexademical output to avoid code repetition.
-    goto print_final_hex;
+    printf("%08x\n", repr);
+    return;
   }
-
+  
+  // I decided to use goto method whenever we have to print a hexademical output to avoid code repetition.
   // 'S' (sign/mag) --> '2' (two's complement)
   if (source_repr == 'S' && target_repr == '2') {
     unsigned int sign_bit = (repr >> 31) & 1u;

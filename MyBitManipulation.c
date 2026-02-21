@@ -23,7 +23,7 @@ int ToggleBit(int num, int pos) {
  */
 int GetMSB(int num) {
   for (int i = 31; i >= 0; i--) {
-    uint32_t mask = 1u << i;
+    uint32_t mask = 1u << i; // Shifts left by i bits.
     if ((num & mask) != 0) {
       return i;
     }
