@@ -44,7 +44,7 @@ void repr_convert(char source_repr, char target_repr, unsigned int repr) {
       final_result = repr;
       goto print_final_hex;
     } else if (sign_bit == 1u) {
-      final_result = (1 << 31) | ~(repr - 1u); // Gets positive value (magnitude), then I set MSB to 1 to indicate negative number
+      final_result = (1u << 31) | ~(repr - 1u); // Gets positive value (magnitude), then I set MSB to 1 to indicate negative number
       goto print_final_hex;
     }
   }
